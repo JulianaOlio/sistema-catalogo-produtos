@@ -1,7 +1,7 @@
 package com.fiap.sistema_catalogo.models.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -16,8 +16,8 @@ public class Categoria {
     @Column(length = 100)
     private String categoria;
 
-    @OneToMany(mappedBy = "categoria", cascade = CascadeType.ALL)
-    @JsonManagedReference
+    @ManyToMany(mappedBy = "categorias")
+    @JsonIgnore
     private Set<Produto> produtos = new HashSet<Produto>();
 
     public Set<Produto> getProdutos() {

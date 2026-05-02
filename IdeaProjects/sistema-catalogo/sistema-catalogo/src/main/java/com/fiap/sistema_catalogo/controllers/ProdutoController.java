@@ -2,6 +2,7 @@ package com.fiap.sistema_catalogo.controllers;
 
 import com.fiap.sistema_catalogo.dtos.AtualizarProdutoDto;
 import com.fiap.sistema_catalogo.dtos.SalvarProdutoDto;
+import com.fiap.sistema_catalogo.models.documents.RelatorioDeProduto;
 import com.fiap.sistema_catalogo.models.entities.Produto;
 import com.fiap.sistema_catalogo.services.ProdutoService;
 import jakarta.validation.Valid;
@@ -45,5 +46,10 @@ public class ProdutoController {
     @GetMapping("/{id}")
     public ResponseEntity<Produto> buscarProduto(@PathVariable Long id){
         return ResponseEntity.ok(produtoService.buscarProduto(id));
+    }
+
+    @GetMapping("/{id}/relatorio")
+    public ResponseEntity<RelatorioDeProduto> gerarRelatorio(@PathVariable Long id) {
+        return ResponseEntity.ok(produtoService.gerarRelatorio(id));
     }
 }

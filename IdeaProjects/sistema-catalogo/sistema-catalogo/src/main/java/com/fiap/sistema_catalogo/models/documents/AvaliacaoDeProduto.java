@@ -6,6 +6,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document("avaliacao_de_produto")
 public class AvaliacaoDeProduto {
     @Id private String id;
+    private Long produtoId;
     private String nomeUsuario;
     private String comentario;
     private int nota;
@@ -16,6 +17,14 @@ public class AvaliacaoDeProduto {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public Long getProdutoId() {
+        return produtoId;
+    }
+
+    public void setProdutoId(Long produtoId) {
+        this.produtoId = produtoId;
     }
 
     public String getNomeUsuario() {

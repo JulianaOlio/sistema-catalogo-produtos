@@ -4,13 +4,14 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
 import java.math.BigDecimal;
+import java.util.Set;
 
 public record SalvarProdutoDto(
         @NotBlank String nome,
         @NotBlank String descricao,
         @NotNull BigDecimal preco,
         @NotNull Integer estoque,
-        @NotNull Long categoriaId
+        @NotNull Set<Long> categoriaIds
 ) {
 
 }
